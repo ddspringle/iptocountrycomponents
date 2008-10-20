@@ -1,0 +1,42 @@
+#summary An explanation of the test cases included with this package.
+#labels Featured,Phase-Design,Phase-Implementation
+
+= Introduction =
+
+IpToCountry Components includes two [http://code.google.com/p/mxunit/ MXUnit] test cases for testing the two components of IpToCountry and are provided here for reference purposes and to use as templates in case you modify either of these components.
+
+
+= Details =
+
+Some tests of the ipToCountry component’s:
+
+*parseResouceList.cfc* – This component takes a comma delimited list and returns a query.
+*parseResourceListTest.cfc* - The test case gives the component a comma delimited list and then verifies it is a valid CF Query returned from the component.
+
+{{{
+<cfcomponent displayname="parseResourceListTest"  extends="mxunit.framework.TestCase">
+<cffunction name="testAdd" access="public" returntype="void">
+  <cfscript>  
+    parseResourceListComponent = createObject("component","/ipToCountry/component/parseResourceList");  
+    actual = parseResourceListComponent.parseResourceList('from,to,registry,assigned,country2lc,country3lc,country');  
+    assertIsQuery(actual);
+   </cfscript>
+</cffunction>
+</cfcomponent>
+}}}
+
+*ipToCountry.cfc* – This component takes an IP Address and returns a string of the country. 
+*ipToCountryTest.cfc* - The test case gives it an IP address based on CGI.REMOTE_HOST, with an expected result of ‘UNITED STATES’ (since we’re in the USA). It then verifies the value ‘UNITED STATES’ is returned from the component.
+
+{{{
+<cfcomponent displayname="ipToCountryTest"  extends="mxunit.framework.TestCase">
+<cffunction name="testAdd" access="public" returntype="void">
+  <cfscript>  
+    ipToCountryComponent = createObject("component","/ipToCountry/component/ipToCountry");  
+    expected = "UNITED STATES";  
+    actual = ipToCountryComponent.ipToCountry(CGI.REMOTE_ADDR);  
+    assertEquals(expected,actual);  
+   </cfscript>
+</cffunction>
+</cfcomponent>
+}}}
