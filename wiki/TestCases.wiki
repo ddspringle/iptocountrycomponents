@@ -28,7 +28,7 @@ Some tests of the ipToCountry component’s:
 
 *ipToCountry.cfc* – This component takes an IP Address and returns a string of the country.
 
-*ipToCountryTest.cfc* - The test case gives it an IP address based on CGI.REMOTE_HOST, with an expected result of ‘UNITED STATES’ (since we’re in the USA). It then verifies the value ‘UNITED STATES’ is returned from the component.
+*ipToCountryTest.cfc* - The test case gives it an IP address based on CGI.REMOTE_HOST, with an expected result of ‘UNITED STATES’ (since we’re in the USA - you will want to modify this if you live elsewhere!). It then verifies the value ‘UNITED STATES’ is returned from the component.
 
 {{{
 <cfcomponent displayname="ipToCountryTest"  extends="mxunit.framework.TestCase">
