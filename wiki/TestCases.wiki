@@ -11,6 +11,7 @@ IpToCountry Components includes two [http://code.google.com/p/mxunit/ MXUnit] te
 Some tests of the ipToCountry component’s:
 
 *parseResouceList.cfc* – This component takes a comma delimited list and returns a query.
+
 *parseResourceListTest.cfc* - The test case gives the component a comma delimited list and then verifies it is a valid CF Query returned from the component.
 
 {{{
@@ -25,7 +26,8 @@ Some tests of the ipToCountry component’s:
 </cfcomponent>
 }}}
 
-*ipToCountry.cfc* – This component takes an IP Address and returns a string of the country. 
+*ipToCountry.cfc* – This component takes an IP Address and returns a string of the country.
+
 *ipToCountryTest.cfc* - The test case gives it an IP address based on CGI.REMOTE_HOST, with an expected result of ‘UNITED STATES’ (since we’re in the USA). It then verifies the value ‘UNITED STATES’ is returned from the component.
 
 {{{
